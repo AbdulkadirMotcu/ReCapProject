@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -30,6 +31,17 @@ namespace Business.Concrete
             _userDal.Delete(user);
             return new SuccessResult();
         }
+
+        public IDataResult<User> Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<User>> GetAll()
+        {
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UsersListed);
+        }
+
 
         public IResult Update(User user)
         {

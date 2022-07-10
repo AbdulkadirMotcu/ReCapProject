@@ -31,27 +31,30 @@ namespace ConsoleUI
             ColorManager colorManager = new ColorManager(new EfColorDal());
             //Color color1 = new Color { ColorId = 4, ColorName = "Fildişi" };
             //Color color2 = new Color { ColorId = 5, ColorName = "AQUA" };
-            
+
             //colorManager.Add(color1);
             //colorManager.Add(color2);
 
-            
+            UserManager userManager = new UserManager(new EfUserDal());
+            User user1 = new User {Id = 1, FirstName = "Kadir", LastName= "Motcu", Email = "kadirmotcu@gmail.com", Password = "123456" };
+            userManager.Add(user1);
+
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            Customer customer1 = new Customer{Id = 1, UserId = 1 ,CompanyName ="asddsa"  };
+            customerManager.Add(customer1);
+
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            Rental rental1 = new Rental { Id = 1, CarId = 1, CustomerId = 1, RentDate = new DateTime(2022, 07, 02), ReturnDate = new DateTime(2022,07,03) };
+            rentalManager.Add(rental1);
+
+            Console.WriteLine(user1.FirstName);
             
 
-            
-
-            GetCarDetailsTest(carManager);
 
 
         }
 
-        private static void GetCarDetailsTest(CarManager carManager)
-        {
-            foreach (var cars in carManager.GetCarDetails())
-            {
-                Console.WriteLine("{0} / {1} / {2} ",cars.BrandName, cars.ColorName, cars.DailyPrice);
-            }
-        }
+       
 
     }
 

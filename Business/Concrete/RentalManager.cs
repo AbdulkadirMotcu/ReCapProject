@@ -22,7 +22,7 @@ namespace Business.Concrete
 
         public IResult Add(Rental rental)
         {
-            var result = _rentalDal.Get(r => r.CarId == rental.CarId && r.ReturnDate == null);
+            var result = _rentalDal.Get(r => r.CarId == rental.CarId );
             if (result == null)
             {
                 _rentalDal.Add(rental);
@@ -35,6 +35,16 @@ namespace Business.Concrete
         {
             _rentalDal.Delete(rental);
             return new SuccessResult();
+        }
+
+        public IDataResult<Rental> Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<Rental>> GetAll()
+        {
+            throw new NotImplementedException();
         }
 
         public IResult Update(Rental rental)
