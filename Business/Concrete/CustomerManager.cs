@@ -32,9 +32,9 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IDataResult<Customer> Get(int id)
+        public IDataResult<Customer> GetById(int customerId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Customer>(_customerDal.Get(c=> c.Id == customerId));
         }
 
         public IDataResult<List<Customer>> GetAll()

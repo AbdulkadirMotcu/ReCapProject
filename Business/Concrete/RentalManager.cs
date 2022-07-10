@@ -37,14 +37,14 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IDataResult<Rental> Get(int id)
+        public IDataResult<Rental> GetById(int rentalId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Rental>(_rentalDal.Get(r=> r.Id ==rentalId));
         }
 
         public IDataResult<List<Rental>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalsListed);
         }
 
         public IResult Update(Rental rental)
