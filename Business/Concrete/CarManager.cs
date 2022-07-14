@@ -21,9 +21,10 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        //[validation] doğrulama kodu
         public IResult Add(Car car)
         {
-            _carDal.Add(car);
+          
             return new SuccessResult(Messages.CarAdded);
         }
 
@@ -35,11 +36,11 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour==23)
+            if (DateTime.Now.Hour==18)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }
-            return new SuccessDataResult<List<Car>>(Messages.CarsListed);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.CarsListed);
         }
 
         public IDataResult<Car> GetById(int id)
