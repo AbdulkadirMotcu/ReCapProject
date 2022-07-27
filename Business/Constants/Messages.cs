@@ -22,9 +22,9 @@ namespace Business.Constants
         public static string CustomersListed = "Müşteriler Listelendi";
 
         public static string UsersListed = "Kullanıcılar Listelendi";
-
-
-
-
+        public static string CarImageCountOfCarError ="Maksimum 5 adet resim yüklenebilir";
+        public static string CarImageDeleted = "Resim silindi";
+        public static string CarImagesListed = "Araba resimleri listelendi";
+        public static string CarImageUpdated = "Resim güncellendi";
     }
 }
