@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Core.Entities.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -35,9 +36,9 @@ namespace ConsoleUI
             //colorManager.Add(color1);
             //colorManager.Add(color2);
 
-            UserManager userManager = new UserManager(new EfUserDal());
-            User user1 = new User {Id = 1, FirstName = "Kadir", LastName= "Motcu", Email = "kadirmotcu@gmail.com", Password = "123456" };
-            userManager.Add(user1);
+            //UserManager userManager = new UserManager(new EfUserDal());
+            //User user1 = new User {Id = 1, FirstName = "Kadir", LastName= "Motcu", Email = "kadirmotcu@gmail.com", Password = "123456" };
+            //userManager.Add(user1);
 
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             Customer customer1 = new Customer{Id = 1, UserId = 1 ,CompanyName ="asddsa"  };
@@ -47,7 +48,7 @@ namespace ConsoleUI
             Rental rental1 = new Rental { Id = 1, CarId = 1, CustomerId = 1, RentDate = new DateTime(2022, 07, 02), ReturnDate = new DateTime(2022,07,03) };
             rentalManager.Add(rental1);
 
-            Console.WriteLine(user1.FirstName);
+            //Console.WriteLine(user1.FirstName);
             
 
 
